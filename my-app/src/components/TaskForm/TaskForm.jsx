@@ -1,4 +1,4 @@
-import { addTask } from "../../redux/slices/tasksSlice";
+import { addTask } from "../../redux/operations";
 import { Button } from "../Button/Button";
 import css from "./TaskForm.module.css";
 // Importăm hook-ul:
@@ -14,7 +14,7 @@ export const TaskForm = () => {
     const form = event.target;
     // Apelăm generatorul de acțiuni și-i transmitem textul sarcinii pentru câmpul payload
     // Trimitem rezultatul - o acțiune de creare a sarcinii.
-    dispatch(addTask(form.elements.text.value));
+    dispatch(addTask(event.target.elements.text.value));
     form.reset();
   };
 

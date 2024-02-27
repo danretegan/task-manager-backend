@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // Importăm hook-ul:
 import { useDispatch } from "react-redux";
 // Importăm generatorul de acțiuni:
-import { deleteTask, toggleCompleted } from "../../redux/slices/tasksSlice";
+import { deleteTask, toggleCompleted } from "../../redux/operations";
 
 export const Task = ({ task }) => {
   // Obținem o referință către funcția pentru trimiterea acțiunii:
