@@ -16,7 +16,7 @@ export const Task = ({ task }) => {
 
   // Apelăm generatorul de acțiuni și-i transmitem id-ul sarcinii
   // Trimitem rezultatul - o acțiune de modificare a stării sarcinii:
-  const handleToggle = () => dispatch(toggleCompleted(task.id));
+  const handleToggle = () => dispatch(toggleCompleted(task));
 
   return (
     <div className={css.wrapper}>
