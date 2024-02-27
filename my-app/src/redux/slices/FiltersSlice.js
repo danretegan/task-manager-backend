@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { statusFilters } from "../constants";
+import { statusFilters } from "./constants";
 
 const filtersInitialState = {
   status: statusFilters.all,
@@ -15,6 +15,5 @@ const filtersSlice = createSlice({
   },
 });
 
-// Exportam generatorul de actiune si reducer-ul:
 export const { setStatusFilter } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
