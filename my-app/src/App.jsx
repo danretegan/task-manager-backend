@@ -34,8 +34,8 @@ const App = () => {
         </div>
         <AppBar />
         <TaskForm />
-        {isloading && !error && <b>Request in progress...</b>}
         <TaskList />
+        {isloading && !error && <b>Request in progress...</b>}
       </Layout>
     </>
   );
