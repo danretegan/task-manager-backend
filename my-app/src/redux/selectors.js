@@ -10,10 +10,13 @@ export const selectError = (state) => state.tasks.error;
 export const selectStatusFilter = (state) => state.filters.status;
 
 export const selectVisibleTasks = createSelector(
+  // O matrice de selectori:
   [selectTasks, selectStatusFilter],
+  // Funcția convertor:
   (todo, statusulFiltrului) => {
     console.log("Calc todo count Now memoized!");
 
+    // Efectuăm calculele necesare și returnăm rezultatul:
     switch (statusulFiltrului) {
       case statusFilters.active:
         return todo.filter((task) => !task.completed);
