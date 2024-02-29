@@ -3,33 +3,15 @@ import css from "./TaskList.module.css";
 // Importăm hook-ul:
 import { useSelector } from "react-redux";
 // Importăm un obiect cu valorile filtrelor:
-import { statusFilters } from "../../redux/constants";
-import { selectStatusFilter, selectTasks } from "../../redux/selectors";
-
-const getVisibleTasks = (tasks, statusFilter) => {
-  switch (statusFilter) {
-    case statusFilters.active:
-      return tasks.filter((task) => !task.completed);
-
-    case statusFilters.completed:
-      return tasks.filter((task) => task.completed);
-
-    default:
-      return tasks;
-  }
-};
+import { selectVisibleTasks } from "../../redux/selectors";
 
 export const TaskList = () => {
-  // Obținem o matrice cu sarcini din starea Redux:
-  const tasks = useSelector(selectTasks);
-  // Obținem valoarea filtrului din starea Redux:
-  const statusFilter = useSelector(selectStatusFilter);
-  // Calculăm matricea de sarcini care trebuie afișată în interfață:
-  const visibleTasks = getVisibleTasks(tasks, statusFilter);
+  // codul pentru componenta TaskList este mult mai simplu, deoarece am mutat toată logica în selector.
+  const todo = useSelector(selectVisibleTasks);
 
   return (
     <ul className={css.list}>
-      {visibleTasks.map((task) => (
+      {todo.map((task) => (
         <li className={css.listItem} key={task.id}>
           <Task task={task} />
         </li>
