@@ -25,5 +25,24 @@ export const selectVisibleTasks = (state) => {
   }
 };
 
+export const selectTaskCount = (state) => {
+  const tasks = selectTasks(state);
+
+  return tasks.reduce(
+    (count, task) => {
+      if (task.completed) {
+        count.completed += 1;
+      } else {
+        count.active += 1;
+      }
+      return count;
+    },
+    {
+      active: 0,
+      completed: 0,
+    }
+  );
+};
+
 /**Funcții selector
 Același selector poate fi utilizat în mai multe locuri din aplicație, ceea ce duce la duplicarea codului, cum ar fi în componentele TaskList, StatusFilter și TaskCounter. Pentru a evita acest lucru și pentru a structura codul și mai bine, toate funcțiile selectorului sunt declarate într-un fișier separat. De exemplu, în src/redux/selectors.js, după care sunt importate în componente. */
