@@ -1,25 +1,11 @@
-import { selectTasks } from "../../redux/selectors";
+import { selectTaskCount } from "../../redux/selectors";
 import css from "./TaskCounter.module.css";
 // Importăm hook-ul:
 import { useSelector } from "react-redux";
 
 export const TaskCounter = () => {
-  // Obținem o matrice de sarcini din starea Redux:
-  const tasks = useSelector(selectTasks);
-
-  // Obținem date derivate pe baza stării Redux:
-  const count = tasks.reduce(
-    (acc, task) => {
-      if (task.completed) {
-        acc.completed += 1;
-      } else {
-        acc.active += 1;
-      }
-
-      return acc;
-    },
-    { active: 0, completed: 0 }
-  );
+  // Acum codul pentru componenta TaskCounter este mult mai simplu, deoarece am mutat toata logica in selector. Componenta trebuie doar să apeleze selectorul și să folosească valoarea rezultată:
+  const count = useSelector(selectTaskCount);
 
   return (
     <div>
