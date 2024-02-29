@@ -1,11 +1,11 @@
-import { getTasks } from "../../redux/selectors";
+import { selectTasks } from "../../redux/selectors";
 import css from "./TaskCounter.module.css";
 // Importăm hook-ul:
 import { useSelector } from "react-redux";
 
 export const TaskCounter = () => {
   // Obținem o matrice de sarcini din starea Redux:
-  const tasks = useSelector(getTasks);
+  const tasks = useSelector(selectTasks);
 
   // Obținem date derivate pe baza stării Redux:
   const count = tasks.reduce(

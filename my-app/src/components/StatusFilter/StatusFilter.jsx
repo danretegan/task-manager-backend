@@ -4,7 +4,7 @@ import css from "./StatusFilter.module.css";
 import { useSelector, useDispatch } from "react-redux";
 // Importăm obiectul cu valorile filtrelor:
 import { statusFilters } from "../../redux/constants";
-import { getStatusFilter } from "../../redux/selectors";
+import { selectStatusFilter } from "../../redux/selectors";
 // Importăm generatorul de acțiuni:
 import { setStatusFilter } from "../../redux/slices/filtersSlice";
 
@@ -13,7 +13,7 @@ export const StatusFilter = () => {
   const dispatch = useDispatch();
 
   // Obținem valoarea filtrului din starea Redux:
-  const filter = useSelector(getStatusFilter);
+  const filter = useSelector(selectStatusFilter);
 
   // Apelăm generatorul de acțiuni și-i transmitem valoarea filtrului
   // Trimitem rezultatul - o acțiune de modificare a filtrului:
