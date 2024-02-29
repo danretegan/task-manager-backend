@@ -13,6 +13,8 @@ export const selectVisibleTasks = (state) => {
   const todo = selectTasks(state);
   const statusulFiltrului = selectStatusFilter(state);
 
+  console.log("Calc todo count");
+
   switch (statusulFiltrului) {
     case statusFilters.active:
       return todo.filter((task) => !task.completed);
@@ -27,6 +29,8 @@ export const selectVisibleTasks = (state) => {
 
 export const selectTaskCount = (state) => {
   const tasks = selectTasks(state);
+
+  console.log("Calculating task count");
 
   return tasks.reduce(
     (count, task) => {
